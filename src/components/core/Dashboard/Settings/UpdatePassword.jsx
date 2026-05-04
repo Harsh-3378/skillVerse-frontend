@@ -17,7 +17,7 @@ export default function UpdatePassword() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm();
 
   const submitPasswordForm = async (data) => {

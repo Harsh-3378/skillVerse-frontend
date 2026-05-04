@@ -9,14 +9,13 @@ import { formatDate } from "../../../../services/formatDate";
 import { useNavigate } from 'react-router-dom';
 import ConfirmationModal from '../../../comman/ConfirmationModal';
 import { deleteCourse, fetchInstructorCourses } from '../../../../services/operations/courseDetailsAPI';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const CoursesTable = ({courses, setCourses}) => {
 
   const {token} = useSelector((state)=>state.auth)
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-  const dispatch = useDispatch()
   const [confirmationModal, setConfirmationModal] = useState(null)
   const TRUNCATE_LENGTH = 30;
 

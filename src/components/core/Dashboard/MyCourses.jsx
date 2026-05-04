@@ -13,19 +13,17 @@ const MyCourses = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setLoading(true);
     const fetchCourses = async () => {
-      
+      setLoading(true);
       const response = await fetchInstructorCourses(token);
       console.log("instructor all courses", response);
       if (response) {
         setCourses(response);
       }
-      
+      setLoading(false);
     };
-setLoading(false);
     fetchCourses();
-  }, []);
+  }, [token]);
   return (
     <div>
       {loading ? (

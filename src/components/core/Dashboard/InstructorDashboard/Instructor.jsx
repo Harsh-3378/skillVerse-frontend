@@ -34,7 +34,7 @@ const Instructor = () => {
         setLoading(false)
       }
       )()
-    },[])
+    },[token])
 
   return (
     <div>

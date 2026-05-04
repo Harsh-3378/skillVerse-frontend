@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from "../../assets/Logo/images__1___1_-removebg-preview.png"
 import { Link, matchPath } from 'react-router-dom'
 import {NavbarLinks} from "../../data/navbar-links"
 import { useLocation } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
 import { apiConnector } from '../../services/apiconnector'
@@ -30,13 +30,11 @@ const Navbar = () => {
     const location = useLocation()
 
     const [subLinks, setSubLinks] = useState([])
-    const [loading, setLoading] = useState(false)
 
     console.log("total items", totalItems);
     
 
     const fetchSublinks = async () => {
-      setLoading(true)
         try {
             const result = await apiConnector("GET", categories.CATEGORIES_API);
             console.log("printing sublinks results");
@@ -47,7 +45,6 @@ const Navbar = () => {
         } catch (error) {
             console.log("could not fetch the category list", error);
         }
-        setLoading(false)
     };
 
     useEffect(()=>{
@@ -128,7 +125,7 @@ const Navbar = () => {
 
         {/* login/signup/dashboard */}
         <div className="md:flex gap-x-4 items-center hidden">
-          {user && user?.accountType != ACCOUNT_TYPE.INSTRUCTOR && (
+          {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
             <Link to="/dashboard/cart" className="relative">
               <AiOutlineShoppingCart className="text-2xl text-richblack-100" />
               {totalItems > 0 && (
