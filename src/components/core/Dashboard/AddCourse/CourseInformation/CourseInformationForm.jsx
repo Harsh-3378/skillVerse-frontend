@@ -57,6 +57,7 @@ const CourseInformationForm = () => {
     }
 
     getCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isFormUpdated = () => {
@@ -117,6 +118,8 @@ const CourseInformationForm = () => {
           formData.append("thumbnailImage", data.courseImage);
         }
 
+        console.log("printing form data:", formData);
+
         setLoading(true)
         const response = await editCourseDetails(formData, token)
         console.log("printing EditCourseDetails api response:", response);
@@ -131,7 +134,6 @@ const CourseInformationForm = () => {
         toast.error("No changes made to the form")
       }
       
-      console.log("printing form data:", formData);
       return
     }
 
