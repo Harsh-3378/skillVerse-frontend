@@ -49,6 +49,7 @@ const Navbar = () => {
 
     useEffect(()=>{
         fetchSublinks();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const matchRoute = (route) =>{
@@ -149,7 +150,7 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-          {token != null && <ProfileDropDown />}
+          {token !== null && <ProfileDropDown />}
         </div>
       </div>
     </div>

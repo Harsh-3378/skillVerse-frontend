@@ -1,5 +1,4 @@
 import React from 'react'
-import {AiOutlineDown} from "react-icons/ai"
 import { HiOutlineVideoCamera } from "react-icons/hi";
 
 const CourseSubSectionAccordion = ({subSec}) => {
