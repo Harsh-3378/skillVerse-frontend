@@ -41,7 +41,7 @@ const VerifyEmail = () => {
         if(!signupData){
             navigate("/signup")
         }
-    },[]);
+    },[navigate, signupData]);
 
   return (
     <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center">

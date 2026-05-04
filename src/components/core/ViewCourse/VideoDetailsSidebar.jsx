@@ -6,7 +6,6 @@ import {BsChevronDown} from "react-icons/bs"
 import IconBtn from '../../comman/IconBtn'
 import { toast } from "react-hot-toast";
 import axios from 'axios'
-import { formatDate } from '../../../services/formatDate'
 
 const VideoDetailsSidebar = ({setReviewModal}) => {
 
@@ -153,16 +152,17 @@ const GenerateCertificate = async () => {
         )
 
         //now set the current sectionId and current SubSectionId
-        setActiveStatus(courseSectionData?.[currentSectionIndx]?._id)
-        setVideoBarActive(
-          courseSectionData[currentSectionIndx]?.subSection?.[currentSubSectionIndx]?._id
-        );
+        const newActiveStatus = courseSectionData?.[currentSectionIndx]?._id
+        const newVideoBarActive = courseSectionData[currentSectionIndx]?.subSection?.[currentSubSectionIndx]?._id
+        
+        setActiveStatus(newActiveStatus)
+        setVideoBarActive(newVideoBarActive);
 
-        console.log("Active Status",activeStatus);
-        console.log("Active video Bar", videoBarActive);
+        console.log("Active Status", newActiveStatus);
+        console.log("Active video Bar", newVideoBarActive);
         console.log("courseSectionData", courseSectionData);
       })()
-    }, [courseSectionData, courseEntireData, location.pathname])
+    }, [courseSectionData, courseEntireData, location.pathname, sectionId, subSectionId])
 
 
   return (

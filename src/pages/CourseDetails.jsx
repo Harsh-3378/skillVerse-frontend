@@ -9,7 +9,6 @@ import RatingStars from "../components/comman/RatingStars"
 import { BiInfoCircle } from "react-icons/bi";
 import { HiOutlineGlobeAlt } from "react-icons/hi";
 import ReactMarkdown from "react-markdown";
-import { formatDate } from "../services/formatDate";
 import CourseDetailsCard from "../components/core/Course/CourseDetailsCard";
 import ConfirmationModal from "../components/comman/ConfirmationModal";
 import Footer from "../components/comman/Footer"
@@ -75,7 +74,7 @@ const CourseDetails = () => {
         setIsActive(
           !isActive.includes(id)
             ? isActive.concat([id])
-            : isActive.filter((e) => e != id)
+            : isActive.filter((e) => e !== id)
         );
       };
 
@@ -91,7 +90,6 @@ const CourseDetails = () => {
       }
 
       const {
-        _id:course_id,
         courseName,
         courseDescription,
         thumbnail,
@@ -105,9 +103,6 @@ const CourseDetails = () => {
       } = response.data?.courseDetails
 
       console.log("courseDetails.jsx: -> ",courseContent);
-      
-
-      // console.log(course_id);
       
 
         const handleBuyCourse = () => {
@@ -176,7 +171,7 @@ const CourseDetails = () => {
               <div className="flex flex-wrap gap-5 text-lg">
                 <p className="flex items-center gap-2">
                   {" "}
-                  <BiInfoCircle /> Created at {formatDate(createdAt)}
+                  <BiInfoCircle /> Created at {new Date(createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </p>
                 <p className="flex items-center gap-2">
                   {" "}

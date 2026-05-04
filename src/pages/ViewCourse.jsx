@@ -29,7 +29,7 @@ const ViewCourse = () => {
             dispatch(setTotalNoOfLectures(lectures))
         }
         )()
-    },[courseId])
+    },[courseId, token, dispatch])
 
   return (
     <>

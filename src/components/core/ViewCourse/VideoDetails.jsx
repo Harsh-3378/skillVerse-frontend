@@ -46,7 +46,7 @@ const VideoDetails = () => {
           setVideoEnded(false);
         }
       })();
-  }, [courseSectionData, courseEntireData, location.pathname]);
+  }, [courseSectionData, courseEntireData, location.pathname, courseId, sectionId, subSectionId, navigate]);
 
   const isFirstVideo = () => {
     const currentSectionIndx = courseSectionData.findIndex(
